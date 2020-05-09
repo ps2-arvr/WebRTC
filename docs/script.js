@@ -69,7 +69,8 @@ function stopLocalStream(stream) {
  * 要望を出すことを「Offer」といい、Offerに対して、自分のSDP渡すから
  * あなたのも頂戴！という要望を出すことを「Answer」という
  */
-const url = "https://192.168.3.16:3000/";
+//const url = "https://192.168.3.16:3000/";
+const url = "https://caface41.ngrok.io/";
 const socket = io.connect(url, {secure: true});
 let room = "testRoom";
  
