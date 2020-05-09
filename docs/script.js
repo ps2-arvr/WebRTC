@@ -26,7 +26,6 @@ async function startVideo() {
     } catch(error) {
         console.log("can't start local video: " + error);
     }
-    sleep(1000);
 	connect();
 }
 // WebƒJƒƒ‰‚Ì‰f‘œ‚ğæ“¾
