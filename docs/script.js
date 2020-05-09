@@ -237,3 +237,6 @@ function createVideo(id, stream) {
  
     playVideo(video, stream);
 }
+
+startVideo();
+connect();
