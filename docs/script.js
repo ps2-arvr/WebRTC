@@ -239,5 +239,5 @@ function createVideo(id, stream) {
 }
 
 startVideo();
-sleep(1000);
+sleep(2000);
 connect();
