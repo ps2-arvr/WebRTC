@@ -70,7 +70,7 @@ function stopLocalStream(stream) {
  * あなたのも頂戴！という要望を出すことを「Answer」という
  */
 //const url = "https://192.168.3.16:3000/";
-const url = "https://caface41.ngrok.io/";
+const url = "https://e7e84a26.ngrok.io/";
 const socket = io.connect(url, {secure: true});
 let room = "testRoom";
  
