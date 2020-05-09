@@ -26,6 +26,8 @@ async function startVideo() {
     } catch(error) {
         console.log("can't start local video: " + error);
     }
+    sleep(1000);
+	connect();
 }
 // WebƒJƒƒ‰‚Ì‰f‘œ‚ğæ“¾
 async function getDeviceStream(option) {
@@ -239,5 +241,3 @@ function createVideo(id, stream) {
 }
 
 startVideo();
-sleep(2000);
-connect();
