@@ -26,7 +26,6 @@ async function startVideo() {
     } catch(error) {
         console.log("can't start local video: " + error);
     }
-	connect();
 }
 // Webカメラの映像を取得
 async function getDeviceStream(option) {
@@ -71,7 +70,8 @@ function stopLocalStream(stream) {
  * あなたのも頂戴！という要望を出すことを「Answer」という
  */
 //const url = "https://192.168.3.16:3000/";
-const url = "https://e7e84a26.ngrok.io/";
+//const url = "http://127.0.0.1:3000/";
+const url = "https://1fec8c92.ngrok.io/";
 const socket = io.connect(url, {secure: true});
 let room = "testRoom";
  
@@ -80,6 +80,7 @@ socket.on("connect", function(evt) {
     console.log("signaling server connected\r\nmy id: " + socket.id);
     socket.emit("enter", room);
     console.log("enter room: " + room);
+    connect();
 });
  
 /**
@@ -87,10 +88,10 @@ socket.on("connect", function(evt) {
  * 同roomのpeerに対してofferを送ってほしいという要望を出します
  */
 function connect() {
-    if (localStream && peerConnections.length < MAX_CONNECTION_COUNT) {
+//    if (localStream && peerConnections.length < MAX_CONNECTION_COUNT) {
         socket.emit("message", {type: "call me"});
         console.log("send call me by: " + socket.id);
-    }
+//    }
 }
 // 各種メッセージの処理
 socket.on("message", function(message) {
@@ -228,15 +229,10 @@ function addCandidate(id, candidate) {
         // このタイミングでonicecandidateが発火するので送り返す
     }
 }
- 
+
 // ICEでP2Pができたらリモート映像を出力する
 function createVideo(id, stream) {
-    let video = document.createElement("video");
-    video.id = "remote_" + id;
-    container.appendChild(video);
-    remoteVideos[id] = video;
- 
+    let video = document.getElementById("video");
+    console.log("video.id: " + video.id);
     playVideo(video, stream);
 }
-
-startVideo();
