@@ -41,7 +41,7 @@ async function playVideo(element, stream) {
         element.src = window.URL.createObjectURL(stream);
     }
     try {
-        await element.play();
+        //await element.play();
     } catch(error) {
         console.log("stream error: " + error);
     }
